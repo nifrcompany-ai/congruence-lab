@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Полный тест — Congruence Lab</title>
+  <script src="js/ui-early.js"></script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <nav class="cl-nav cl-nav-drawer is-open" style="display:flex"><a href="diagnose.html">Диагностика</a></nav>
+      </div>
+    </header>
+    <h1>Полный тест</h1>
+    <p id="cl-lq-progress" class="mono">1 / 42</p>
+    <div id="cl-long-progress" class="cl-progress" style="max-width:520px;margin:0.5rem 0 1rem"><i style="display:block;width:2%"></i></div>
+    <div class="cl-card glass" style="max-width:720px">
+      <p id="cl-lq-text">Загрузка…</p>
+      <form id="cl-long-form" class="cl-likert cl-scale" style="margin-top:1rem" role="radiogroup" aria-labelledby="cl-lq-text">
+        <label class="cl-scale-option"><input type="radio" name="v" value="1" required><span>1 — совсем не согласен</span></label>
+        <label class="cl-scale-option"><input type="radio" name="v" value="2"><span>2 — скорее не согласен</span></label>
+        <label class="cl-scale-option"><input type="radio" name="v" value="3"><span>3 — нейтрально</span></label>
+        <label class="cl-scale-option"><input type="radio" name="v" value="4"><span>4 — скорее согласен</span></label>
+        <label class="cl-scale-option"><input type="radio" name="v" value="5"><span>5 — полностью согласен</span></label>
+      </form>
+    </div>
+    <p style="margin-top:1rem"><button type="button" id="cl-long-reset" class="grad-btn" style="background:#495057;box-shadow:none">Сброс</button></p>
+  </div>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="data/questions-long.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/test-long.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: '' });
+    CLTestLong.init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Профиль — Congruence Lab</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <button type="button" class="cl-nav-toggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <nav class="cl-nav cl-nav-drawer"><a href="index.html">Главная</a><a href="profile.html" data-nav="profile">Профиль</a></nav>
+      </div>
+    </header>
+    <h1>Личный профиль</h1>
+    <p>Приватность: всё на устройстве. Экспорт с анонимизацией опционален.</p>
+    <p>Уровень: <strong id="cl-prof-level">1</strong> · <a href="achievements.html">достижения</a></p>
+    <div class="cl-card"><canvas id="cl-prof-chart" height="220"></canvas></div>
+    <h2>История тестов</h2>
+    <ul id="cl-prof-history"></ul>
+    <button type="button" id="cl-prof-export" class="grad-btn">Экспорт сводки (JSON)</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: 'profile' });
+    CLProfile.init();
+  </script>
+</body>
+</html>

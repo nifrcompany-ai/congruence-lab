@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Дневник — Congruence Lab</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <button type="button" class="cl-nav-toggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <nav class="cl-nav cl-nav-drawer"><a href="index.html">Главная</a><a href="journal.html" data-nav="journal">Дневник</a></nav>
+      </div>
+    </header>
+    <h1>Цифровой дневник</h1>
+    <form id="cl-journal-form" class="cl-card glass" style="max-width:560px">
+      <label class="cl-label">Насколько посты сегодня отражали вас? (1–10)</label>
+      <input id="j-auth" class="cl-input" type="number" min="1" max="10" value="5" required>
+      <label class="cl-label" style="margin-top:0.75rem">Доминирующая эмоция</label>
+      <select id="j-emo" class="cl-select" required>
+        <option>спокойствие</option>
+        <option>радость</option>
+        <option>тревога</option>
+        <option>усталость</option>
+        <option>вдохновение</option>
+        <option>грусть</option>
+      </select>
+      <label class="cl-label" style="margin-top:0.75rem">Комментарий</label>
+      <textarea id="j-note" class="cl-textarea"></textarea>
+      <label style="margin-top:0.5rem;display:flex;align-items:center;gap:0.5rem">
+        <input type="checkbox" id="j-posts"> Был активный день постов
+      </label>
+      <button type="submit" class="grad-btn" style="margin-top:1rem">Сохранить локально</button>
+    </form>
+    <h2>Тепловая карта (30 дней)</h2>
+    <div id="cl-journal-heat" class="cl-heat" style="max-width:480px"></div>
+    <h2>Тренд</h2>
+    <div class="cl-card"><canvas id="cl-journal-chart" height="220"></canvas></div>
+    <p id="cl-journal-corr" class="cl-card glass" style="margin-top:1rem;font-size:0.9rem"></p>
+    <h3>Экспорт (с анонимизацией)</h3>
+    <button type="button" id="cl-journal-export-json" class="grad-btn" style="margin-right:0.5rem">JSON</button>
+    <button type="button" id="cl-journal-export-csv" class="grad-btn" style="margin-right:0.5rem;background:#495057;box-shadow:none">CSV</button>
+    <button type="button" id="cl-journal-export-pdf" class="grad-btn" style="background:#343a40;box-shadow:none">PDF</button>
+    <button type="button" id="cl-journal-export-png" class="grad-btn" style="background:#212529;box-shadow:none;margin-left:0.5rem">PNG (heatmap)</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/journal.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: 'journal' });
+    CLJournal.init();
+  </script>
+</body>
+</html>

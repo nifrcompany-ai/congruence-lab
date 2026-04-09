@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-Коуч DEMO — Congruence Lab</title>
+  <script src="js/ui-early.js"></script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="cl-particles" class="cl-particles" width="800" height="600" aria-hidden="true"></canvas>
+  <div id="cl-confetti" class="cl-confetti" aria-hidden="true"></div>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <button type="button" class="cl-nav-toggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <nav class="cl-nav cl-nav-drawer">
+          <a href="index.html">Главная</a>
+          <a href="coach.html" data-nav="coach">AI-Коуч</a>
+        </nav>
+      </div>
+    </header>
+    <div class="cl-demo-banner" style="font-size:1rem;border-width:2px">
+      <strong style="font-size:1.2rem;color:var(--warning)">DEMO</strong> — Это демонстрационная версия AI-коуча. В реальной версии используется нейросеть для персонализированных ответов. Сейчас: задержка 0.8–1.5 с и 200+ шаблонов по ключевым словам.
+    </div>
+    <h1>AI-Коуч <span class="mono" style="color:var(--warning)">DEMO</span></h1>
+    <p class="mono" style="font-size:0.88rem">История до 100 сообщений · IndexedDB · без отправки на сервер</p>
+    <p id="cl-daily-tip" class="cl-card glass" style="margin:1rem 0"></p>
+    <div id="cl-coach-chat" class="cl-chat glass" role="log" aria-live="polite"></div>
+    <div class="cl-coach-compose">
+      <div class="cl-textarea-wrap">
+        <p class="cl-input-hint"><strong>Enter</strong> — отправить сообщение · <strong>Shift+Enter</strong> — перенос строки</p>
+        <textarea id="cl-coach-input" class="cl-textarea cl-textarea--compose" rows="4" placeholder="Напишите сообщение коучу (DEMO)… Например: устал от ленты, боюсь писать посты." autocomplete="off"></textarea>
+      </div>
+      <button type="button" id="cl-coach-send" class="grad-btn" aria-label="Отправить сообщение"><i class="fas fa-paper-plane" aria-hidden="true"></i> Отправить</button>
+    </div>
+    <h2 style="margin-top:2rem">Анализатор постов <span class="mono" style="color:var(--warning)">DEMO</span></h2>
+    <p>Эмуляция NLP: ключевые слова по 6 осям, сравнение с профилем (расширяемо).</p>
+    <textarea id="cl-post-text" class="cl-textarea cl-textarea--compose" placeholder="Вставьте или наберите текст поста для разбора…"></textarea>
+    <button type="button" id="cl-post-analyze" class="grad-btn" style="margin-top:0.5rem">Анализировать</button>
+    <div id="cl-post-result" class="cl-card" style="margin-top:1rem"></div>
+  </div>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="data/coach-responses.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/coach.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: 'coach' });
+    CLCoach.init();
+  </script>
+</body>
+</html>

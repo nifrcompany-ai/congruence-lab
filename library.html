@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Библиотека — Congruence Lab</title>
+  <script src="js/ui-early.js"></script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <button type="button" class="cl-nav-toggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <nav class="cl-nav cl-nav-drawer"><a href="index.html">Главная</a><a href="library.html" data-nav="library">Библиотека</a></nav>
+      </div>
+    </header>
+    <h1>Библиотека</h1>
+    <div class="cl-tabs">
+      <button type="button" class="cl-tab is-active" data-tab="tab-practices">Практики</button>
+      <button type="button" class="cl-tab" data-tab="tab-archetypes">Архетипы</button>
+      <button type="button" class="cl-tab" data-tab="tab-articles">Статьи</button>
+      <button type="button" class="cl-tab" data-tab="tab-books">Книги</button>
+      <button type="button" class="cl-tab" data-tab="tab-exercises">Упражнения</button>
+      <button type="button" class="cl-tab" data-tab="tab-meditations">Медитации</button>
+    </div>
+    <div id="tab-practices" class="cl-tab-panel is-active"><div id="cl-lib-practices"></div></div>
+    <div id="tab-archetypes" class="cl-tab-panel"><div id="cl-lib-archetypes"></div></div>
+    <div id="tab-articles" class="cl-tab-panel"><div id="cl-lib-articles"></div></div>
+    <div id="tab-books" class="cl-tab-panel"><div id="cl-lib-books"></div></div>
+    <div id="tab-exercises" class="cl-tab-panel"><div id="cl-lib-exercises"></div></div>
+    <div id="tab-meditations" class="cl-tab-panel"><div id="cl-lib-meditations"></div></div>
+  </div>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="data/archetypes.js"></script>
+  <script src="data/practices.js"></script>
+  <script src="data/articles.js"></script>
+  <script src="data/books.js"></script>
+  <script src="data/exercises.js"></script>
+  <script src="data/meditations.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/library.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: 'library' });
+    CLLibrary.init();
+  </script>
+</body>
+</html>

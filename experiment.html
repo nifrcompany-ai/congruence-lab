@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Социальный эксперимент — Congruence Lab</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <button type="button" class="cl-nav-toggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <nav class="cl-nav cl-nav-drawer"><a href="index.html">Главная</a><a href="experiment.html" data-nav="experiment">Эксперимент</a></nav>
+      </div>
+    </header>
+    <h1>12 цифровых масок</h1>
+    <p>Генератор постов, A/B, эмуляция лайков и ER — всё локально.</p>
+    <div class="cl-card glass">
+      <label class="cl-label">Маска</label>
+      <select id="cl-mask-select" class="cl-select"></select>
+      <button type="button" id="cl-mask-gen" class="grad-btn" style="margin-top:0.75rem">Сгенерировать пост</button>
+      <pre id="cl-mask-output" class="mono cl-card" style="margin-top:1rem;white-space:pre-wrap"></pre>
+    </div>
+    <h2>A/B двух масок</h2>
+    <div class="cl-grid cl-grid-2">
+      <div><label>A</label><select id="cl-ab-a" class="cl-select"></select></div>
+      <div><label>B</label><select id="cl-ab-b" class="cl-select"></select></div>
+    </div>
+    <button type="button" id="cl-ab-run" class="grad-btn" style="margin-top:0.5rem">Сравнить</button>
+    <div id="cl-ab-result" style="margin-top:1rem"></div>
+    <h3>История</h3>
+    <ul id="cl-exp-hist"></ul>
+  </div>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="data/masks.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/experiment.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: 'experiment' });
+    CLExperiment.init();
+  </script>
+</body>
+</html>

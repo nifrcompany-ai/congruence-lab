@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Результат — быстрый тест</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <nav class="cl-nav cl-nav-drawer is-open" style="display:flex"><a href="profile.html">Профиль</a><a href="test-short.html">Повтор</a></nav>
+      </div>
+    </header>
+    <h1>Результаты быстрого теста</h1>
+    <div class="cl-grid cl-grid-2" style="align-items:start">
+      <div class="cl-card glass">
+        <p>DSCI</p>
+        <div class="cl-radial" style="--p:75"><span id="cl-rs-dsci">—</span></div>
+        <p>Архетип: <strong id="cl-rs-arch">—</strong></p>
+        <div id="cl-rs-rec"></div>
+      </div>
+      <div class="cl-card">
+        <canvas id="cl-chart-short" height="280"></canvas>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="data/archetypes.js"></script>
+  <script src="data/questions-short.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/result-short.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: '' });
+    CLResultShort.init();
+  </script>
+</body>
+</html>

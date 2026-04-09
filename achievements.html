@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Достижения — Congruence Lab</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="cl-particles" class="cl-particles" width="800" height="600" aria-hidden="true"></canvas>
+  <div id="cl-confetti" class="cl-confetti" aria-hidden="true"></div>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <button type="button" class="cl-nav-toggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <nav class="cl-nav cl-nav-drawer"><a href="index.html">Главная</a><a href="achievements.html" data-nav="achievements">Ачивки</a></nav>
+      </div>
+    </header>
+    <h1>Достижения и уровень</h1>
+    <p>Уровень 1–10 от активности. Звук при ачивке — в настройках.</p>
+    <p class="h2">Текущий уровень: <span id="cl-ach-level">1</span> / 10</p>
+    <div id="cl-ach-list" class="cl-grid cl-grid-2"></div>
+  </div>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="data/questions-short.js"></script>
+  <script src="data/questions-long.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: 'achievements' });
+    CLAchievements.checkAll();
+    CLAchievements.renderList('cl-ach-list');
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') {
+        CLAchievements.checkAll();
+        CLAchievements.renderList('cl-ach-list');
+      }
+    });
+  </script>
+</body>
+</html>

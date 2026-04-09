@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Научная база — Congruence Lab</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <button type="button" class="cl-nav-toggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <nav class="cl-nav cl-nav-drawer">
+          <a href="index.html" data-nav="home">Главная</a>
+          <a href="research.html" data-nav="research">Наука</a>
+          <a href="library.html">Библиотека</a>
+        </nav>
+      </div>
+    </header>
+    <h1>Научная база</h1>
+    <div class="cl-acc-item is-open">
+      <button type="button" class="cl-acc-head">Карл Роджерс — конгруэнтность <i class="fas fa-chevron-down"></i></button>
+      <div class="cl-acc-body" style="max-height:400px;padding:1rem">
+        <p>Конгруэнтность — согласованность переживания, самосознания и поведения. В цифровой среде добавляется измерение «публичного я».</p>
+      </div>
+    </div>
+    <div class="cl-acc-item">
+      <button type="button" class="cl-acc-head">Эрвинг Гоффман — самопрезентация</button>
+      <div class="cl-acc-body"><p>Фронтстейдж и бэкстейдж: курирование образа в соцсетях как театральная рамка.</p></div>
+    </div>
+    <div class="cl-acc-item">
+      <button type="button" class="cl-acc-head">Эдвард Хиггинс — несоответствие «я»</button>
+      <div class="cl-acc-body"><p>Actual, Ideal, Ought selves; в приложении используется упрощённая тройка Real / Ideal / Digital.</p></div>
+    </div>
+    <div class="cl-acc-item">
+      <button type="button" class="cl-acc-head">Райан и Деси — самодетерминация</button>
+      <div class="cl-acc-body"><p>Автономия, компетентность, связанность как базовые потребности, уязвимые в attention economy.</p></div>
+    </div>
+    <div class="cl-acc-item">
+      <button type="button" class="cl-acc-head">Шерри Тёркл — цифровая идентичность</button>
+      <div class="cl-acc-body"><p>Связность ≠ близость; рефлексия за экраном и восстановление разговора.</p></div>
+    </div>
+    <p style="margin-top:1.5rem"><a class="grad-btn" href="library.html" style="display:inline-block;text-decoration:none;color:#fff">Материалы в библиотеке</a></p>
+  </div>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: 'research' });
+    document.querySelectorAll('.cl-acc-head').forEach(function (h) {
+      h.addEventListener('click', function () { h.parentElement.classList.toggle('is-open'); });
+    });
+  </script>
+</body>
+</html>

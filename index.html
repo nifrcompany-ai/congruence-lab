@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Congruence Lab — локальная лаборатория цифровой идентичности, DSCI, тесты, дневник.">
+  <title>Congruence Lab — Лаборатория конгруэнтности</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#93a4ff">
+  <script src="js/ui-early.js"></script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="cl-particles" class="cl-particles" width="800" height="600" aria-hidden="true"></canvas>
+  <div id="cl-confetti" class="cl-confetti" aria-hidden="true"></div>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span><span>Congruence Lab</span></a>
+        <button type="button" class="cl-nav-toggle" aria-expanded="false" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <nav class="cl-nav cl-nav-drawer" aria-label="Основное">
+          <a href="index.html" data-nav="home" data-i18n="nav_home">Главная</a>
+          <a href="diagnose.html" data-nav="diagnose" data-i18n="nav_diagnose">Диагностика</a>
+          <a href="research.html" data-nav="research">Наука</a>
+          <a href="coach.html" data-nav="coach">AI-Коуч <span class="mono" style="color:var(--warning)">DEMO</span></a>
+          <a href="journal.html" data-nav="journal">Дневник</a>
+          <a href="experiment.html" data-nav="experiment">Эксперимент</a>
+          <a href="library.html" data-nav="library">Библиотека</a>
+          <a href="team.html" data-nav="team">Команда</a>
+          <a href="challenges.html" data-nav="challenges">Челленджи</a>
+          <a href="achievements.html" data-nav="achievements">Ачивки</a>
+          <a href="profile.html" data-nav="profile">Профиль</a>
+          <a href="settings.html" data-nav="settings">Настройки</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="cl-demo-banner" role="note">
+      <strong>DEMO</strong> — блок <strong>AI-Коуч</strong> использует шаблоны ответов, не нейросеть.
+      <span data-i18n="privacy_note">Все данные хранятся только на вашем устройстве.</span>
+    </div>
+
+    <section class="cl-hero">
+      <h1 class="grad-text" data-i18n="tagline">Измерение и гармонизация цифровой идентичности</h1>
+      <p>Теории Роджерса, Гоффмана, Хиггинса, Райана и Деси, Тёркл — в одном локальном исследовательском интерфейсе.</p>
+      <p class="mono" style="font-size:0.9rem;opacity:0.9">DSCI = 100 − (|R−D| + |I−D|) / 2 &nbsp;·&nbsp; R,I,D — средние по 6 осям профиля</p>
+      <div class="cl-hero-radar-wrap glass anim-fadeInUp">
+        <canvas id="cl-hero-chart" height="260" aria-label="Демо-радар"></canvas>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-top:1rem">
+        <a class="grad-btn" href="diagnose.html">Пройти диагностику</a>
+        <a class="grad-btn" href="library.html" style="background:linear-gradient(135deg,#495057,#343a40);box-shadow:none">Библиотека</a>
+      </div>
+    </section>
+
+    <section class="cl-grid cl-grid-3" style="margin-top:2rem">
+      <div class="card-3d"><div class="cl-card card-3d-inner neo">
+        <div class="cl-feature-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>6 осей</h3>
+        <p>Аутентичность, самопрезентация, автономия, связь, рефлексия, цифровая идентичность.</p>
+      </div></div>
+      <div class="card-3d"><div class="cl-card card-3d-inner neo">
+        <div class="cl-feature-icon"><i class="fas fa-user-shield"></i></div>
+        <h3>Локально</h3>
+        <p>localStorage + IndexedDB. Нет ваших данных на нашем сервере — серверов нет.</p>
+      </div></div>
+      <div class="card-3d"><div class="cl-card card-3d-inner neo">
+        <div class="cl-feature-icon"><i class="fas fa-mobile-screen"></i></div>
+        <h3>PWA</h3>
+        <p>Установка на экран, офлайн-кэш базовых файлов через Service Worker.</p>
+      </div></div>
+    </section>
+
+    <section style="margin-top:2.5rem">
+      <h2>Тесты</h2>
+      <div class="cl-grid cl-grid-2">
+        <a href="test-short.html" class="cl-card" style="text-decoration:none;color:inherit">
+          <h3>Быстрый тест</h3>
+          <p>12 вопросов, 5–7 минут. Real vs Digital, архетип, DSCI.</p>
+        </a>
+        <a href="test-long.html" class="cl-card" style="text-decoration:none;color:inherit">
+          <h3>Полный тест</h3>
+          <p>42 вопроса, контроль согласованности, план на 7 дней.</p>
+        </a>
+      </div>
+    </section>
+
+    <button type="button" class="grad-btn" style="margin-top:1.5rem" data-modal-open="modal-privacy">Политика данных и DEMO-шифрование</button>
+
+    <footer class="cl-footer">
+      <p>Congruence Lab · исследовательский прототип · не медицинский совет</p>
+      <p><a href="coach.html">AI-Коуч (DEMO)</a> · <a href="settings.html">Очистить данные</a></p>
+    </footer>
+  </div>
+
+  <div id="modal-privacy" class="cl-modal" hidden aria-hidden="true">
+    <div class="cl-modal-box glass">
+      <h3>Данные и приватность</h3>
+      <p>Приложение работает без бэкенда. CDN только для шрифтов, иконок и библиотек графиков.</p>
+      <p class="mono" style="font-size:0.85rem">XOR-demo: <span id="crypto-note-load"></span></p>
+      <button type="button" class="grad-btn" data-modal-close="modal-privacy">Понятно</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="data/demo-data.js"></script>
+  <script src="js/crypto.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/social.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: 'home' });
+    var cryptoNote = document.getElementById('crypto-note-load');
+    if (cryptoNote) cryptoNote.textContent = CLCrypto.NOTE;
+    var privacyBtn = document.querySelector('[data-modal-open="modal-privacy"]');
+    if (privacyBtn) {
+      privacyBtn.addEventListener('click', function () {
+        var st = CLAchievements.load();
+        st.privacyModal = true;
+        CLAchievements.save(st);
+        CLAchievements.checkAll();
+      });
+    }
+    (function () {
+      var d = CLDemoData.profileScores;
+      var axes = CL_CONSTANTS.AXES.map(function (a) { return a.ru; });
+      var ctx = document.getElementById('cl-hero-chart');
+      if (ctx && typeof Chart !== 'undefined') {
+        new Chart(ctx, {
+          type: 'radar',
+          data: {
+            labels: axes,
+            datasets: [
+              { label: 'Real (демо)', data: d.realSelf, borderColor: '#4895ef', backgroundColor: 'rgba(72,149,239,0.15)' },
+              { label: 'Ideal (демо)', data: d.idealSelf, borderColor: '#06d6a0', backgroundColor: 'rgba(6,214,160,0.1)' },
+              { label: 'Digital (демо)', data: d.digitalSelf, borderColor: '#f72585', backgroundColor: 'rgba(247,37,133,0.1)' }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 1,
+            scales: {
+              r: {
+                min: 0,
+                max: 100,
+                ticks: { display: false },
+                pointLabels: {
+                  font: { size: 11 }
+                }
+              }
+            }
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

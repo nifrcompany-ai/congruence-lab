@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Команда — Congruence Lab</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <button type="button" class="cl-nav-toggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+        <nav class="cl-nav cl-nav-drawer"><a href="index.html">Главная</a><a href="team.html" data-nav="team">Команда</a></nav>
+      </div>
+    </header>
+    <h1>Групповая динамика</h1>
+    <p>Код из 6 символов. Участники добавляют анонимный снимок профиля (средние по осям). Без сервера — демо-режим на одном устройстве.</p>
+    <div class="cl-card glass">
+      <button type="button" id="cl-team-create" class="grad-btn">Создать группу</button>
+      <hr style="border-color:var(--border);margin:1rem 0">
+      <label class="cl-label">Код для входа</label>
+      <input id="cl-team-code" class="cl-input" maxlength="6" placeholder="XXXXXX" style="max-width:200px">
+      <button type="button" id="cl-team-join" class="grad-btn" style="margin-left:0.5rem">Вступить</button>
+      <button type="button" id="cl-team-demo-peers" class="grad-btn" style="margin-left:0.5rem;background:#495057;box-shadow:none">+ демо-участники</button>
+    </div>
+    <div id="cl-team-view" class="cl-card" style="margin-top:1rem"></div>
+    <canvas id="cl-team-chart" height="280" style="max-width:480px;margin-top:1rem"></canvas>
+    <button type="button" id="cl-team-export" class="grad-btn" style="margin-top:1rem">Экспорт аналитики (создатель)</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="data/questions-long.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/social.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/team.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: 'team' });
+    CLTeam.init();
+  </script>
+</body>
+</html>

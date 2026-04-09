@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Результат — полный тест</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cl-shell cl-page-enter">
+    <header class="cl-header">
+      <div class="cl-header-inner glass">
+        <a class="cl-logo" href="index.html"><span class="cl-logo-mark">CL</span></a>
+        <nav class="cl-nav cl-nav-drawer is-open" style="display:flex"><a href="coach.html">AI-Коуч DEMO</a><a href="journal.html">Дневник</a></nav>
+      </div>
+    </header>
+    <h1>Результаты полного теста</h1>
+    <div class="cl-demo-banner"><strong>DEMO</strong> AI-коуч и глубокие интерпретации в полной версии — с моделью и согласием пользователя.</div>
+    <div class="cl-grid cl-grid-2">
+      <div class="cl-card glass">
+        <h3>DSCI <span id="cl-rl-dsci" class="anim-glow">0</span></h3>
+        <p id="cl-rl-arch" class="h3" style="font-size:1.25rem"></p>
+        <p id="cl-rl-arch-desc"></p>
+        <p id="cl-rl-cons" class="mono" style="font-size:0.85rem"></p>
+        <h4>Топ-3 рассогласования</h4>
+        <ul id="cl-rl-mismatch"></ul>
+      </div>
+      <div class="cl-card"><canvas id="cl-chart-long" height="300"></canvas></div>
+    </div>
+    <div class="cl-card" style="margin-top:1rem">
+      <h3>7-дневный план (черновик)</h3>
+      <ol id="cl-rl-plan"></ol>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+  <script src="data/constants.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="data/archetypes.js"></script>
+  <script src="data/questions-long.js"></script>
+  <script src="js/database.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/result-long.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    CLApp.init({ active: '' });
+    CLResultLong.init();
+  </script>
+</body>
+</html>
