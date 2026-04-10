@@ -163,6 +163,17 @@
       }).catch(function () {});
     }
     if (global.CLAchievements) global.CLAchievements.checkAll();
+
+    var retryBtn = document.getElementById('cl-rl-retry');
+    if (retryBtn) {
+      retryBtn.addEventListener('click', function () {
+        if (confirm('Начать полный тест заново?')) {
+          localStorage.removeItem(SK.LONG_STATE);
+          localStorage.removeItem(SK.LONG_PROFILE);
+          global.location.href = 'test-long.html';
+        }
+      });
+    }
   }
 
   global.CLResultLong = { init: init };

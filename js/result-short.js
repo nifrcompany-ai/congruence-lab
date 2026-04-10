@@ -92,6 +92,17 @@
       }).catch(function () {});
     }
     if (global.CLAchievements) global.CLAchievements.checkAll();
+
+    var retryBtn = document.getElementById('cl-rs-retry');
+    if (retryBtn) {
+      retryBtn.addEventListener('click', function () {
+        if (confirm('Начать быстрый тест заново?')) {
+          localStorage.removeItem(SK.SHORT_STATE);
+          localStorage.removeItem(SK.SHORT_PROFILE);
+          global.location.href = 'test-short.html';
+        }
+      });
+    }
   }
 
   global.CLResultShort = { init: init };
